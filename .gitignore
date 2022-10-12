@@ -3,5 +3,6 @@
 ./cmd
 
 .idea
+.vscode
 
 plato
