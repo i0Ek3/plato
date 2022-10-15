@@ -19,6 +19,7 @@ func generator(n node) string {
 		for _, v := range n.body {
 			result = append(result, generator(v))
 		}
+
 		// 并为每个 result 加入换行
 		return strings.Join(result, "\n")
 	// 当节点类型为 ExpressionStatement，则递归便利当前节点的 expression，并在结尾加上分号
@@ -34,6 +35,7 @@ func generator(n node) string {
 		}
 		// 为 result 加入逗号，拼接所有字符串并加入相应的左右括号，返回结果
 		res := strings.Join(result, ", ")
+
 		return c + "(" + res + ")"
 	// 当节点类型为 Identifier，直接返回当前节点的名字即可，即 Identifier 为函数操作，对应的是函数名
 	case "Identifier":
@@ -44,6 +46,7 @@ func generator(n node) string {
 	// 否则抛出错误并返回空串
 	default:
 		log.Fatal(n.kind)
+
 		return ""
 	}
 }

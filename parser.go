@@ -58,6 +58,7 @@ func walk() node {
 	// 并返回一个 NumberLiteral 节点，设置其值为当前 token 对应的 value
 	if token.kind == "number" {
 		pc++
+
 		return node{
 			kind:  "NumberLiteral",
 			value: token.value,
@@ -88,8 +89,10 @@ func walk() node {
 			token = pt[pc]
 		}
 		pc++
+
 		return newNode
 	}
 	log.Fatal(token.kind)
+
 	return node{}
 }
